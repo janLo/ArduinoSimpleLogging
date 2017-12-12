@@ -1,0 +1,21 @@
+{
+  "name": "ArduinoSimpleLogging",
+  "keywords": "logging, serial, debug",
+  "description": "Simple logging framework knowing levels and handlers",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/janLo/ArduinoSimpleLogging.git"
+  },
+  "authors":
+  [
+    {
+      "name": "Jan Losinski",
+      "email": "losinski@wh2.tu-dresden.de",
+      "maintainer": true
+    }
+  ],
+  "version": "0.1.0",
+  "frameworks": "arduino",
+  "platforms": "*"
+}
