@@ -13,12 +13,13 @@ size_t ArduinoSimpleLogging::LogTarget::write(uint8_t byte) {
   return Logger.log(_level, byte);
 }
 
-size_t ArduinoSimpleLogging::LogTarget::write(const uint8_t *buffer, size_t size) {
+size_t ArduinoSimpleLogging::LogTarget::write(const uint8_t *buffer,
+                                              size_t size) {
   return Logger.log(_level, buffer, size);
 }
 
-size_t ArduinoSimpleLogging::log(ArduinoSimpleLogging::Level level, const uint8_t *buffer,
-                           size_t size) {
+size_t ArduinoSimpleLogging::log(ArduinoSimpleLogging::Level level,
+                                 const uint8_t *buffer, size_t size) {
   for (auto &handler : handlers) {
     if ((handler.mask & level) != 0) {
       handler.stream.write(buffer, size);
@@ -27,7 +28,8 @@ size_t ArduinoSimpleLogging::log(ArduinoSimpleLogging::Level level, const uint8_
   return size;
 }
 
-size_t ArduinoSimpleLogging::log(ArduinoSimpleLogging::Level level, uint8_t byte) {
+size_t ArduinoSimpleLogging::log(ArduinoSimpleLogging::Level level,
+                                 uint8_t byte) {
   for (auto &handler : handlers) {
     if ((handler.mask & level) != 0) {
       handler.stream.write(byte);
@@ -46,7 +48,8 @@ uint8_t ArduinoSimpleLogging::LogHandler::makeMask(
   return mask;
 }
 
-void ArduinoSimpleLogging::addHandler(ArduinoSimpleLogging::Level level, Print &stream) {
+void ArduinoSimpleLogging::addHandler(ArduinoSimpleLogging::Level level,
+                                      Print &stream) {
   removeHandler(stream);
   handlers.emplace_front(level, stream);
 }
