@@ -40,7 +40,7 @@ void setup() {
 
   // Handler for warning - error & warning output
   Serial.println("------------------------");
-  Serial.println("Handler for error ...");
+  Serial.println("Handler for warning ...");
   Logger.addHandler(Logger.WARNING, Serial);
   log();
   Serial.println("------------------------");
@@ -48,7 +48,7 @@ void setup() {
 
   // Handler for info - error, warning & info output
   Serial.println("------------------------");
-  Serial.println("Handler for error ...");
+  Serial.println("Handler for info ...");
   Logger.addHandler(Logger.INFO, Serial);
   log();
   Serial.println("------------------------");
@@ -56,7 +56,7 @@ void setup() {
 
   // logger for debug - error, warning, info & debug output
   Serial.println("------------------------");
-  Serial.println("Handler for error ...");
+  Serial.println("Handler for debug ...");
   Logger.addHandler(Logger.DEBUG, Serial);
   log();
   Serial.println("------------------------");
