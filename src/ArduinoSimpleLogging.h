@@ -47,6 +47,9 @@ class ArduinoSimpleLogging {
   void addHandler(Level level, Print &);
   void removeHandler(Print &);
 
+  static String levelToString(Level level);
+  static Level stringToLevel(const String &levelName);
+
  private:
   struct LogHandler {
     const uint8_t mask;

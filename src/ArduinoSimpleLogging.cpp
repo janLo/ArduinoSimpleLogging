@@ -60,6 +60,33 @@ void ArduinoSimpleLogging::removeHandler(Print &stream) {
   });
 }
 
+String ArduinoSimpleLogging::levelToString(ArduinoSimpleLogging::Level level) {
+  switch (level) {
+    case ERROR:
+      return F("error");
+    case WARNING:
+      return F("warning");
+    case INFO:
+      return F("info");
+    case DEBUG:
+      return F("debug");
+  }
+  return F("debug");
+}
+
+ArduinoSimpleLogging::Level ArduinoSimpleLogging::stringToLevel(
+    const String &levelName) {
+  if (levelName.equalsIgnoreCase(F("error"))) {
+    return ERROR;
+  } else if (levelName.equalsIgnoreCase(F("warning"))) {
+    return WARNING;
+  } else if (levelName.equalsIgnoreCase(F("info"))) {
+    return INFO;
+  } else {
+    return DEBUG;
+  }
+}
+
 ArduinoSimpleLogging Logger;
 
 ArduinoSimpleLogging::LogTarget ArduinoSimpleLogging::debug(DEBUG);
