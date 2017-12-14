@@ -52,6 +52,8 @@ class LineBufferProxy : public Print {
       start += fit;
       size -= fit;
     }
+
+    return start;
   }
 
  protected:
