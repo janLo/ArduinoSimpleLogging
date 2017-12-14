@@ -12,7 +12,7 @@
 
 #include <Print.h>
 
-template <int Buffsize>
+template <int Buffsize, char Sep = '\n'>
 class LineBufferProxy : public Print {
  public:
   LineBufferProxy() : position(0) {}
@@ -21,7 +21,7 @@ class LineBufferProxy : public Print {
     buffer[position] = byte;
     position++;
 
-    if (position >= Buffsize || byte == '\n') {
+    if (position >= Buffsize || byte == Sep) {
       doFlush();
     }
 
@@ -36,7 +36,7 @@ class LineBufferProxy : public Print {
       bool newline = false;
       for (size_t i = 0; i < fit; ++i) {
         buffer[position + i] = incomming[start + i];
-        if (incomming[i + start] == '\n') {
+        if (incomming[i + start] == Sep) {
           newline = true;
           fit = i + 1;
           break;
