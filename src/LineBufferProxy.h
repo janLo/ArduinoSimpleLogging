@@ -56,6 +56,8 @@ class LineBufferProxy : public Print {
     return start;
   }
 
+  virtual ~LineBufferProxy() = default;
+
  protected:
   size_t size() const { return position; }
   virtual void flush(const char* buff) = 0;
