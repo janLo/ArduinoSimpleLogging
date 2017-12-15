@@ -10,6 +10,7 @@
 #ifndef LINEBUFFERPROXY_H
 #define LINEBUFFERPROXY_H
 
+#include <algorithm>
 #include <Print.h>
 
 template <int Buffsize, char Sep = '\n'>
